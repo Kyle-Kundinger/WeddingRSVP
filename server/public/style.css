@@ -1,0 +1,51 @@
+body, html{
+    background-image: url("./images/pink.png");
+    background-size: cover;
+    background-color: purple;
+    background-repeat: no-repeat;
+}
+
+.card{
+    pad: 10rem 2.5rem;
+
+    border-radius: 1rem;
+    border: 1-px;
+
+    backdrop-filter: blur(1rem);
+    box-shadow: 3rem 15rem 10rem rgba(0,0,0,3);
+}
+
+.cb1{
+    background-color: rgba(255,255,255,.2);
+
+}
+
+.row{
+    padding-top: 10%;
+}
+
+#searchForm{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    
+}
+
+#exampleInputPassword1{
+    background-color: rgba(255,255,255,.4);
+    text-align: center;
+}
+
+.form-select{
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgba(255,255,255,.6);
+    text-align: center;
+}
+
+.form-check{
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+}

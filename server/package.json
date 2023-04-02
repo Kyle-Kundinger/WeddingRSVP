@@ -1,0 +1,28 @@
+{
+  "name": "weddingproject",
+  "version": "1.0.0",
+  "description": "RSVP Project",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kyle-Kundinger/WeddingRSVP.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kyle-Kundinger/WeddingRSVP/issues"
+  },
+  "homepage": "https://github.com/Kyle-Kundinger/WeddingRSVP#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.9.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
