@@ -43,11 +43,12 @@ const Rsvp = () => {
       <div style={{
         position: 'relative',
         marginTop: '80px',
-        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        backgroundColor: 'rgba(52, 58, 64, 0.6)',
         padding: '20px',
         borderRadius: '10px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)',
-        zIndex: '999'
+        zIndex: '999',
+        color: 'white',
       }}>
         {loading ? (
           <p>Loading...</p>
