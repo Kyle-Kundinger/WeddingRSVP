@@ -1,23 +1,39 @@
 import logo from './logo.svg';
 import './App.css';
+import './index.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Navbar from './components/navbar';
+import About from './components/about';
+import Contact from './components/contact';
+import Home from './components/home';
+import Services from './components/services';
+import oceanImage from './images/ocean.jpg';
+import Rsvp from './components/rsvp';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={{
+      backgroundColor: 'purple',
+      minHeight: '100vh',
+    }}>
+      <div style={{
+        backgroundImage: `url(${oceanImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh',
+      }}>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/rsvp" element={<Rsvp />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
