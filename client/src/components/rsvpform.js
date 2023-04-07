@@ -2,6 +2,7 @@ import React from 'react';
 import PersonBlockData from './personBlockdata';
 import { useState } from 'react';
 import axios from 'axios';
+import API_BASE_URL from "../apiconfig";
 
 const RsvpForm = ({ name, personData, people }) => {
   const [peopleData, setPeopleData] = useState(people);
@@ -13,7 +14,7 @@ const RsvpForm = ({ name, personData, people }) => {
       peopleData.map(async (person) => {
         try {
           const response = await axios.patch(
-            `http://localhost:3000/api/v1/${person._id}`,
+            `${API_BASE_URL}/api/v1/${person._id}`,
             {
               foodChoice: person.foodChoice,
               attending: person.attending,
