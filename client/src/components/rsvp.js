@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RsvpForm from './rsvpform';
 import axios from 'axios';
+import API_BASE_URL from '../apiconfig';
 
 const Rsvp = () => {
   const [name, setName] = useState('');
@@ -20,7 +21,7 @@ const Rsvp = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3000/api/v1/group/${name}`);
+      const response = await axios.get(`${API_BASE_URL}/api/v1/group/${name}`);
       console.log(response.data);
       setPersonData(response.data.person);
       setPeople(response.data.person);
