@@ -14,7 +14,7 @@ app.use('/api/v1/', person)
 
 
 
-const port = 3000
+const port = process.env.PORT || 5000
 
 const start = async () =>{
     try{
