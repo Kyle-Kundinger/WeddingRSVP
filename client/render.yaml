@@ -1,0 +1,8 @@
+staticSites:
+  - name: kundingerschneiderwedding
+    buildCommand: npm run build
+    publishDir: build # or the directory where your built web app resides
+    redirects:
+      - from: /* # catch-all route
+        to: /index.html # redirect to the main index.html file
+        code: 200 # serve with a 200 status code
