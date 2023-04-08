@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import RsvpForm from './rsvpform';
 import axios from 'axios';
 import API_BASE_URL from '../apiconfig';
+import Loading from 'react-loading';
 
 const Rsvp = () => {
   const [name, setName] = useState('');
@@ -52,7 +53,7 @@ const Rsvp = () => {
         color: 'white',
       }}>
         {loading ? (
-          <p>Loading...</p>
+          <Loading type="spin" color="#FFFFFF" />
         ) : 
         submitted ? (
           <RsvpForm name={name} personData={personData} people={people} />
