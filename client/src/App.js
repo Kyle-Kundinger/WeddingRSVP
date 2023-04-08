@@ -9,6 +9,7 @@ import Home from './components/home';
 import Services from './components/services';
 import oceanImage from './images/ocean.jpg';
 import Rsvp from './components/rsvp';
+import Directions from './components/directions';
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/directions" element={<Services />} />
+            <Route path="/directions" element={<Directions />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/rsvp" element={<Rsvp />} />
           </Routes>
