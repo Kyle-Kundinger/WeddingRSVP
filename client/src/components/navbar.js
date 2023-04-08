@@ -37,7 +37,6 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav" ref={navbarCollapseRef}>
           <div className="navbar-nav">
             <Link className="nav-link text-light active" aria-current="page" to="/" onClick={handleLinkClick}>Home</Link>
-            <Link className="nav-link text-light" to="/rsvp" onClick={handleLinkClick}>RSVP</Link>
             <Link className="nav-link text-light" to="/about" onClick={handleLinkClick}>About Us</Link>
             <Link className="nav-link text-light" to="/directions" onClick={handleLinkClick}>Directions</Link>
             <Link className="nav-link text-light" to="/contact" onClick={handleLinkClick}>Contact</Link>

@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import './index.css';
+import './css/styles.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/navbar';
 import About from './components/about';
@@ -31,7 +32,6 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/directions" element={<Directions />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/rsvp" element={<Rsvp />} />
           </Routes>
         </BrowserRouter>
       </div>
