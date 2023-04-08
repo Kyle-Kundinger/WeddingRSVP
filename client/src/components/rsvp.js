@@ -51,7 +51,7 @@ const Rsvp = () => {
           </label>
           <br />
           <br />
-          <input type="submit" value={loading ? 'Loading...' : 'RSVP'} disabled={loading} />
+          <input type="submit" value={loading ? 'Loading...' : 'Search'} disabled={loading} className='buttonRSVP'/>
         </form>
       )}
     </div>

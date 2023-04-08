@@ -37,18 +37,18 @@ class Home extends React.Component {
               Please find the event details below:
             </p>
             <p style={{ marginLeft: '1em', lineHeight: '1.8em' }}>
-              Date: [Wedding Date]<br />
-              Time: [Wedding Time]<br />
-              Venue: [Wedding Venue]<br />
-              Address: [Wedding Venue Address]
+              Date: October 21st, 2023<br />
+              Time: 3:00 P.M.<br />
+              Venue: 404<br />
+              Address: 404 N Main St, Oshkosh, WI 54901<br />
             </p>
-            <button onClick={this.toggleRsvp}>RSVP</button>
+            <button className="buttonRSVP" onClick={this.toggleRsvp}>RSVP</button>
           </>
         )}
         {showRsvp && (
           <>
             <Rsvp />
-            <button onClick={this.toggleRsvp}>Back to Home</button>
+            <button className="button" onClick={this.toggleRsvp}>Back to Home</button>
           </>
         )}
       </div>
