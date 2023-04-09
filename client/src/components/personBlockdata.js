@@ -19,10 +19,10 @@ function PersonBlockData({ name, personData, onChange }) {
   return (
     <div>
       <h2 style={{ textAlign: "center", marginBottom: "20px" }}>
-        Please Fill Out Your RSVP, {name}!
+        {personData.firstName} {personData.lastName}
       </h2>
       <label style={{ margin: "10px" }}>
-        {`Will you be attending the wedding (${personData.firstName})?`}
+        {`Will you be attending?`}
         <br />
         <input
           type="radio"
@@ -44,9 +44,13 @@ function PersonBlockData({ name, personData, onChange }) {
         No
       </label>
       <br />
+      
       {attending === "yes" ? (
+        <div>
         <FoodChoice onChange={handleChange} />
-      ) : null}
+        <hr />
+        </div>
+      ) : <hr />}
       
     </div>
   );

@@ -100,7 +100,10 @@ const RsvpForm = ({ name, personData, people }) => {
           <label>
             Email:
           </label>
+          <br />
+          <br />
           <input type="email" name='email' style={{ marginLeft: "10px" }} />
+          <br />
           <br />
           <br />
           <input
