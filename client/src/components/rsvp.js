@@ -20,7 +20,7 @@ const Rsvp = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/v1/group/${name}`);
+      const response = await axios.get(`${API_BASE_URL}/api/v1/group/${name.toLowerCase()}`);
       console.log(response.data);
       setPersonData(response.data.person);
       setPeople(response.data.person);
