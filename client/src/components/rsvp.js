@@ -20,19 +20,24 @@ const Rsvp = () => {
     return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
   };
 
-  const fetchWithTimeout = async (url, options, timeoutDuration) => {
+  const fetchWithTimeout = async (url, options, timeoutDuration, retryLimit = 3) => {
     try {
       const response = await Promise.race([axios(url, options), timeout(timeoutDuration)]);
       return response;
     } catch (error) {
       if (error.message === 'Request timeout') {
-        console.log('Request timed out, retrying...');
-        return fetchWithTimeout(url, options, timeoutDuration);
+        if (retryLimit > 0) {
+          console.log('Request timed out, retrying...');
+          return fetchWithTimeout(url, options, timeoutDuration, retryLimit - 1);
+        } else {
+          throw new Error('Request timed out after multiple retries');
+        }
       } else {
         throw error;
       }
     }
   };
+  
 
   const handleSubmit = async (event) => {
     event.preventDefault();
