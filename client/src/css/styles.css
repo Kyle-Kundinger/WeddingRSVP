@@ -50,3 +50,18 @@
   .form-container {
     text-align: center;
   }
+
+  .rsvp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .loading-container {
+    text-align: center;
+  }
+  
+  
+  
+  

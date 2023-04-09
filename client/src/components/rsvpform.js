@@ -98,7 +98,7 @@ const RsvpForm = ({ name, personData, people }) => {
           ))}
           <br />
           <label>
-            Email:
+            Please Enter Email:
           </label>
           <br />
           <br />

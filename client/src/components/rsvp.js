@@ -53,7 +53,16 @@ const Rsvp = () => {
   return (
     <div>
       {loading ? (
-        <Loading type="spin" color="#FFFFFF" />
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          flexDirection: 'column',
+          height: '100vh',
+        }}>
+          <Loading type="spin" color="#FFFFFF" />
+          <h2>Loading...</h2>
+        </div>
       ) : submitted ? (
         <RsvpForm name={name} personData={personData} people={people} />
       ) : (
