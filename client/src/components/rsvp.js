@@ -16,12 +16,29 @@ const Rsvp = () => {
     setName(event.target.value);
   };
 
+  const timeout = (ms) => {
+    return new Promise((_, reject) => setTimeout(() => reject(new Error('Request timeout')), ms));
+  };
+
+  const fetchWithTimeout = async (url, options, timeoutDuration) => {
+    try {
+      const response = await Promise.race([axios(url, options), timeout(timeoutDuration)]);
+      return response;
+    } catch (error) {
+      if (error.message === 'Request timeout') {
+        console.log('Request timed out, retrying...');
+        return fetchWithTimeout(url, options, timeoutDuration);
+      } else {
+        throw error;
+      }
+    }
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/v1/group/${name.toLowerCase()}`);
-      console.log(response.data);
+      const response = await fetchWithTimeout(`${API_BASE_URL}/api/v1/group/${name.toLowerCase()}`, {}, 5000);
       setPersonData(response.data.person);
       setPeople(response.data.person);
       setSubmitted(true);
