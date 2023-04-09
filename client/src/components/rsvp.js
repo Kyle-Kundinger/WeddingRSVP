@@ -60,7 +60,7 @@ const Rsvp = () => {
           flexDirection: 'column',
           height: '100vh',
         }}>
-          <Loading type="spin" color="#FFFFFF" />
+          <Loading type="bubbles" color="#FFFFFF" />
           <h2>Loading...</h2>
         </div>
       ) : submitted ? (
