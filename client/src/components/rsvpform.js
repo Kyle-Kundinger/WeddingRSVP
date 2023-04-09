@@ -47,6 +47,20 @@ const RsvpForm = ({ name, personData, people }) => {
   const handleSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
+
+  // Send email
+  try {
+    const email = e.target.elements.email.value;
+    const response = await axios.post(`${API_BASE_URL}/api/v1/send-email`, { email });
+    if (response.status === 200) {
+      console.log('Email sent successfully');
+    } else {
+      console.error('Error sending email:', response.data.error);
+    }
+  } catch (error) {
+    console.error('Error sending email:', error.response.data.error);
+  }
+
     const updatedPeople = await updatePeople(peopleData);
     console.log(peopleData);
   };
@@ -86,7 +100,7 @@ const RsvpForm = ({ name, personData, people }) => {
           <label>
             Email:
           </label>
-          <input type="email" style={{ marginLeft: "10px" }} />
+          <input type="email" name='email' style={{ marginLeft: "10px" }} />
           <br />
           <br />
           <input
