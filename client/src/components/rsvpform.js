@@ -84,7 +84,11 @@ const RsvpForm = ({ name, personData, people }) => {
     <>
       {submitted ? (
         <div>
-          <h2>Thanks for RSVPing!</h2>
+          <h2>Thanks For Submitting Your RSVP!</h2>
+          <br />
+          <h5>Your Confirmation Email Will Be Sent Soon</h5>
+          <br />
+          <h6>Notice: It May Appear In Your Junk Folder</h6>
         </div>
       ) : (
         <form onSubmit={handleSubmit}>
