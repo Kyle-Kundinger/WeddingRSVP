@@ -3,15 +3,18 @@ const { model } = require('mongoose')
 const router = express.Router()
 const People = require('../models/people')
 
+// people controller
 const {getAllPeople,createPerson,getPerson,deletePerson,updatePerson, getPersonByFirstName, getPeopleByGroup} = require('../controllers/controllers')
+// nodemailer controller
 const sendEmail = require('../controllers/nodemailer')
 
+// routes for people
 router.route('/').get(getAllPeople).post(createPerson)
 router.route('/:id').get(getPerson).patch(updatePerson).delete(deletePerson)
 router.route('/:firstName').get(getPersonByFirstName)
-
 router.route('/group/:groupNumber').get(getPeopleByGroup)
 
+// route for nodemailer
 router.post('/send-email', async (req, res) => {
     try {
       const { email } = req.body;
@@ -32,5 +35,5 @@ router.post('/send-email', async (req, res) => {
   });
 
   
-
+// export router
 module.exports = router

@@ -1,6 +1,7 @@
 const People = require('../models/people')
 
 
+// gets all people
 const getAllPeople = async (req, res) =>{
     try {
         const person = await People.find({})
@@ -10,6 +11,7 @@ const getAllPeople = async (req, res) =>{
     }
 }
 
+// creates a person
 const createPerson = async (req, res) =>{
     try {
         const person = await People.create(req.body)
@@ -19,6 +21,7 @@ const createPerson = async (req, res) =>{
     }
 }
 
+// get person by first name
 const getPersonByFirstName = async(req, res) =>{
     try {
         
@@ -35,6 +38,7 @@ const getPersonByFirstName = async(req, res) =>{
     }
 }
 
+// get people by group number
 const getPeopleByGroup = async(req, res) =>{
     try {
         const {groupNumber} = req.params; // Corrected destructuring
@@ -50,6 +54,7 @@ const getPeopleByGroup = async(req, res) =>{
     }
 }
 
+// get person by id
 const getPerson = async (req, res) =>{
     try {
         const {id:personID} = req.params
@@ -65,6 +70,7 @@ const getPerson = async (req, res) =>{
     }
 }
 
+// delete person by id
 const deletePerson = async (req,res)=>{
     try {
         const {id:personID} = req.params
@@ -81,6 +87,7 @@ const deletePerson = async (req,res)=>{
     }
 }
 
+// update person by id
 const updatePerson = async (req, res) => {
     try {
         const { id: personID } = req.params;
