@@ -15,10 +15,14 @@ router.route('/group/:groupNumber').get(getPeopleByGroup)
 router.post('/send-email', async (req, res) => {
     try {
       const { email } = req.body;
+      const {people} = req.body;
+      console.log(people);
+
       await sendEmail({
         email,
         subject: 'Thank you for RSVPing!',
         message: 'Thank you for RSVPing to our event!',
+        people: people
       });
       res.status(200).json({ message: 'Email sent successfully' });
     } catch (error) {

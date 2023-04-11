@@ -51,7 +51,7 @@ const RsvpForm = ({ name, personData, people }) => {
   // Send email
   try {
     const email = e.target.elements.email.value;
-    const response = await axios.post(`${API_BASE_URL}/api/v1/send-email`, { email });
+    const response = await axios.post(`${API_BASE_URL}/api/v1/send-email`, { email, people:peopleData});
     if (response.status === 200) {
       console.log('Email sent successfully');
     } else {
