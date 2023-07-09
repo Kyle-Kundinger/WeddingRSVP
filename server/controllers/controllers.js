@@ -126,7 +126,7 @@ const getFullNameGroupNumber = async (req, res) => {
             return;
         }
 
-        res.status(200).json({ people: peopleInSameGroup });
+        res.status(200).json({ person: peopleInSameGroup });
     } catch (error) {
         res.status(500).send({ msg: error });
     }

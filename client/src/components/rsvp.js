@@ -6,6 +6,8 @@ import Loading from 'react-loading';
 
 const Rsvp = () => {
   const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [personData, setPersonData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -14,6 +16,14 @@ const Rsvp = () => {
 
   const handleChange = (event) => {
     setName(event.target.value);
+  };
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLastNameChange = (event) => {
+    setLastName(event.target.value);
   };
 
   const timeout = (ms) => {
@@ -43,7 +53,7 @@ const Rsvp = () => {
     event.preventDefault();
     setLoading(true);
     try {
-      const response = await fetchWithTimeout(`${API_BASE_URL}/api/v1/group/${name.toLowerCase()}`, {}, 5000);
+      const response = await fetchWithTimeout(`${API_BASE_URL}/api/v1/name/${firstName}/${lastName}`, {}, 5000);
       setPersonData(response.data.person);
       setPeople(response.data.person);
       setSubmitted(true);
@@ -72,18 +82,23 @@ const Rsvp = () => {
         <RsvpForm name={name} personData={personData} people={people} />
       ) : (
         <form onSubmit={handleSubmit}>
-          <h2>Please start the process by entering your group number</h2>
-          <label>
-            (This is the number that was sent to you in your invitation)
-            <br />
-            {invalid ? <span><br /><p>Sorry, we couldn't find that group number</p></span> : ''}
-            <br />
-            <input type="text" value={name} onChange={handleChange} />
-          </label>
-          <br />
-          <br />
-          <input type="submit" value={loading ? 'Loading...' : 'Search'} disabled={loading} className='buttonRSVP'/>
-        </form>
+    <h2>Please start the process by entering your first and last name</h2>
+    <label>
+        First Name:
+        <br />
+        <input type="text" value={firstName} onChange={handleFirstNameChange} />
+    </label>
+    <br />
+    <label>
+        Last Name:
+        <br />
+        <input type="text" value={lastName} onChange={handleLastNameChange} />
+    </label>
+    <br />
+    {invalid ? <span><br /><p>Sorry, we couldn't find that name in our database</p></span> : ''}
+    <br />
+    <input type="submit" value={loading ? 'Loading...' : 'Search'} disabled={loading} className='buttonRSVP'/>
+</form>
       )}
     </div>
   );
