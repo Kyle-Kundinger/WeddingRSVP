@@ -4,14 +4,14 @@ const router = express.Router()
 const People = require('../models/people')
 
 // people controller
-const {getAllPeople,createPerson,getPerson,deletePerson,updatePerson, getPersonByFirstName, getPeopleByGroup} = require('../controllers/controllers')
+const {getAllPeople,createPerson,getPerson,deletePerson,updatePerson, getPersonByFirstName, getPeopleByGroup, getFullNameGroupNumber} = require('../controllers/controllers')
 // nodemailer controller
 const sendEmail = require('../controllers/nodemailer')
 
 // routes for people
 router.route('/').get(getAllPeople).post(createPerson)
 router.route('/:id').get(getPerson).patch(updatePerson).delete(deletePerson)
-router.route('/:firstName').get(getPersonByFirstName)
+router.route('/name/:firstName/:lastName').get(getFullNameGroupNumber)
 router.route('/group/:groupNumber').get(getPeopleByGroup)
 
 // route for nodemailer
